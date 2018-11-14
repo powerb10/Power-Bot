@@ -148,8 +148,12 @@ client.on('message', message => {
 
  message.author.sendMessage(`
  **
-
-
+ وصف عن البوت
+ 
+ - شغال 24 ساعة :timer: 
+ - سريع الاستجابة :loudspeaker:
+ - اومر جديدة كل يوم
+ 
  الأوامر العامة 
 $cr-colors : انشاء 50 لون
 $colors  : قائمة الألوان
@@ -166,7 +170,8 @@ $role all : اعطاء رتبة حميع الاعضاء
 $clear : مسح الشات
 $mc : قفل الشات
 $unmc : فتح الشات   
- اخري
+
+اخري
 $inv  : لدعوة البوت الى سيرفرك
 $ping  : لمعرفة سرعة استجابة البوت في الوقت الحالي
 $support  : سيرفر الدعم الفني
@@ -1127,6 +1132,25 @@ setTimeout(() => {
   cooldown.delete(message.author.id)
 }, cdseconds * 1000)
     });
+
+client.on('message', message => {
+if(message.author.bot) return;
+    if (message.content.startsWith("$avatar")) {
+      message.react("🖼") 
+        var mentionned = message.mentions.users.first();
+    var x5bzm;
+      if(mentionned){
+          var x5bzm = mentionned;
+      } else {
+          var x5bzm = message.author;
+          
+      }
+        const embed = new Discord.RichEmbed()
+        .setColor("#00ff47")
+        .setImage(`${x5bzm.avatarURL}`)
+      message.channel.sendEmbed(embed);
+    }
+});
 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
