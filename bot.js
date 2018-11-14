@@ -50,7 +50,7 @@ const channel = sWlc[message.guild.id].channel
   if (message.content.startsWith(prefix + "setwelcome")) {
     if(!message.member.hasPermission(`MANAGE_GUILD`)) return;
     let newChannel = message.content.split(' ').slice(1).join(" ")
-    if(!newChannel) return message.reply(`**${prefix}setwelcomer <channel name>**`)
+    if(!newChannel) return message.reply(`**رجاء كتابت اسم الروم**`)
     sWlc[message.guild.id].channel = newChannel
     message.channel.send(`**${message.guild.name}'s channel has been changed to ${newChannel}**`);
   }
