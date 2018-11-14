@@ -52,7 +52,7 @@ const channel = sWlc[message.guild.id].channel
     let newChannel = message.content.split(' ').slice(1).join(" ")
     if(!newChannel) return message.reply(`**$setwelcome رجاء كتابت اسم الروم**`)
     sWlc[message.guild.id].channel = newChannel
-    message.channel.send(`**${message.guild.name}تم عمل الترحيب في روم ${newChannel}**`);
+    message.channel.send(`**${newChannel} تم عمل الترحيب في روم ${message.guild.name}**`);
   }
 });
  
@@ -1237,6 +1237,34 @@ client.on('message',async message => {
     });
     }
   });
+
+client.on('message', message => {
+  var prefix = "$"; /// غير البرفيكس
+  
+if (message.author.bot) return;
+if (!message.content.startsWith(prefix)) return;
+   
+let command = message.content.split(" ")[0];
+command = command.slice(prefix.length);
+   
+let args = message.content.split(" ").slice(1);
+   
+if (command === "say") {
+message.delete()
+  message.channel.sendMessage(args.join(" ")).catch(console.error);
+}
+
+	
+client.on('ready', () => {
+   console.log(`----------------`);
+      console.log(`Desert Bot- Script By : i1Suhaib`);
+        console.log(`----------------`);
+      console.log(`ON ${client.guilds.size} Servers '     Script By : i1Suhaib ' `);
+    console.log(`----------------`);
+  console.log(`Logged in as ${client.user.tag}!`);
+client.user.setGame(`$help | $inv`,"http://twitch.tv/S-F")
+client.user.setStatus("online")
+});	
 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
