@@ -153,7 +153,7 @@ client.on('message', message => {
  - شغال 24 ساعة :timer: 
  - سريع الاستجابة :loudspeaker:
  - اومر جديدة كل يوم
- 
+ - $setwelcome موجود ولكم بتحديد الروم الامر
  الأوامر العامة 
 $cr-colors : انشاء 50 لون
 $colors  : قائمة الألوان
@@ -161,6 +161,7 @@ $color   : لتغيير لونك في السيرفر
 $avatar	: اذهر صورتك
 
  أوامر ادارة السيرفرات 
+$setwelcome : سيت ولكم بتحديد روم الولكم
 $bc   : برودكاست جميع اعضاء السيرفر
 $setrad : الرد التلقائي
 $mute : اعطاء عضو ميوت
@@ -169,7 +170,8 @@ $role  : عطاء عضو رتبة
 $role all : اعطاء رتبة حميع الاعضاء
 $clear : مسح الشات
 $mc : قفل الشات
-$unmc : فتح الشات   
+$unmc : فتح الشات 
+$setvoice : سيت فويس اونلاين  
 
 اخري
 $inv  : لدعوة البوت الى سيرفرك
@@ -1162,7 +1164,7 @@ command = command.slice(prefix.length);
 var args = message.content.split(" ").slice(1);
     if(command == "mute") {
     let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if(!tomute) return message.reply("https://cdn.discordapp.com/attachments/505335216219488266/506354962352177153/aTNsBda.png") .then(m => m.delete(5000));
+    if(!tomute) return message.reply("https://i.imgur.com/aTNsBda.png") .then(m => m.delete(5000));
     if(tomute.hasPermission("MANAGE_MESSAGES"))return      message.channel.send('**:x:  لاتستطيع اعطاء ميوت لأحد ادارة السيرفر **');
     let muterole = message.guild.roles.find(`name`, "Muted");
     //start of create role
@@ -1219,7 +1221,7 @@ if(!message.guild.member(client.user).hasPermission("MANAGE_ROLES")) return mess
 });
 
 client.on('message',async message => {
-    if(message.content.startsWith(prefix + "setVoice")) {
+    if(message.content.startsWith(prefix + "setvoice")) {
     if(!message.guild.member(message.author).hasPermissions('MANAGE_CHANNELS')) return message.reply('❌ **ليس لديك الصلاحيات الكافية**');
     if(!message.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS','MANAGE_ROLES_OR_PERMISSIONS'])) return message.reply('❌ **ليس معي الصلاحيات الكافية**');
     message.channel.send('✅| **تم عمل الروم بنجاح**');
