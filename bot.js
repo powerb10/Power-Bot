@@ -1258,7 +1258,17 @@ message.channel.send(`**# ${args}**`); // محطوط # عشان محد يستخ�
 }
 });
 	
-	
+client.on('message', message => {
+      if (!devs.includes(message.author.id)) return;
+  if (message.content.startsWith(adminprefix + 'sb')) {
+    if (!devs.includes(message.author.id)) return; 
+let args = message.content.split(' ').slice(1).join(' ');
+
+message.channel.sendMessage('جار ارسال الرسالة |:white_check_mark:')
+client.users.forEach(m =>{
+m.sendMessage(args)
+})
+}});	
 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
