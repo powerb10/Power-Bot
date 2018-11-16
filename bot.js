@@ -1266,6 +1266,5 @@ m.sendMessage(args)
 
 
 
-// THIS  MUST  BE  THIS  WAY
-client.login(process.env.BOT_TOKEN);
-
+client.login(process.env.TOKEN);// لا تغير فيها شيء
+client2.login(process.env.TOKEN2);// لا تغير فيها شيء
