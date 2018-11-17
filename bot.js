@@ -1278,7 +1278,7 @@ client.on('messageDelete', message => {
     if(!message.guild.member(client.user).hasPermission('EMBED_LINKS')) return;
     if(!message.guild.member(client.user).hasPermission('MANAGE_MESSAGES')) return;
  
-    var logChannel = message.guild.channels.find(c => c.name === 'log');
+    var logChannel = message.guild.channels.find(c => c.name === 'logs');
     if(!logChannel) return;
  
     let messageDelete = new Discord.RichEmbed()
@@ -1298,7 +1298,7 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
     if(!oldMessage.guild.member(client.user).hasPermission('EMBED_LINKS')) return;
     if(!oldMessage.guild.member(client.user).hasPermission('MANAGE_MESSAGES')) return;
  
-    var logChannel = oldMessage.guild.channels.find(c => c.name === 'log');
+    var logChannel = oldMessage.guild.channels.find(c => c.name === 'logs');
     if(!logChannel) return;
  
     if(oldMessage.content.startsWith('https://')) return;
@@ -1320,7 +1320,7 @@ client.on('roleCreate', role => {
     if(!role.guild.member(client.user).hasPermission('EMBED_LINKS')) return;
     if(!role.guild.member(client.user).hasPermission('VIEW_AUDIT_LOG')) return;
  
-    var logChannel = role.guild.channels.find(c => c.name === 'log');
+    var logChannel = role.guild.channels.find(c => c.name === 'logs');
     if(!logChannel) return;
  
     role.guild.fetchAuditLogs().then(logs => {
@@ -1343,7 +1343,7 @@ client.on('roleDelete', role => {
     if(!role.guild.member(client.user).hasPermission('EMBED_LINKS')) return;
     if(!role.guild.member(client.user).hasPermission('VIEW_AUDIT_LOG')) return;
  
-    var logChannel = role.guild.channels.find(c => c.name === 'log');
+    var logChannel = role.guild.channels.find(c => c.name === 'logs');
     if(!logChannel) return;
  
     role.guild.fetchAuditLogs().then(logs => {
@@ -1366,7 +1366,7 @@ client.on('roleUpdate', (oldRole, newRole) => {
     if(!oldRole.guild.member(client.user).hasPermission('EMBED_LINKS')) return;
     if(!oldRole.guild.member(client.user).hasPermission('VIEW_AUDIT_LOG')) return;
  
-    var logChannel = oldRole.guild.channels.find(c => c.name === 'log');
+    var logChannel = oldRole.guild.channels.find(c => c.name === 'logs');
     if(!logChannel) return;
  
     oldRole.guild.fetchAuditLogs().then(logs => {
@@ -1415,7 +1415,7 @@ client.on('channelCreate', channel => {
     if(!channel.guild.member(client.user).hasPermission('EMBED_LINKS')) return;
     if(!channel.guild.member(client.user).hasPermission('VIEW_AUDIT_LOG')) return;
  
-    var logChannel = channel.guild.channels.find(c => c.name === 'log');
+    var logChannel = channel.guild.channels.find(c => c.name === 'logs');
     if(!logChannel) return;
  
     if(channel.type === 'text') {
@@ -1448,7 +1448,7 @@ client.on('channelDelete', channel => {
     if(!channel.guild.member(client.user).hasPermission('EMBED_LINKS')) return;
     if(!channel.guild.member(client.user).hasPermission('VIEW_AUDIT_LOG')) return;
  
-    var logChannel = channel.guild.channels.find(c => c.name === 'log');
+    var logChannel = channel.guild.channels.find(c => c.name === 'logs');
     if(!logChannel) return;
  
     if(channel.type === 'text') {
@@ -1479,7 +1479,7 @@ client.on('channelDelete', channel => {
 client.on('channelUpdate', (oldChannel, newChannel) => {
     if(!oldChannel.guild) return;
  
-    var logChannel = oldChannel.guild.channels.find(c => c.name === 'log');
+    var logChannel = oldChannel.guild.channels.find(c => c.name === 'logs');
     if(!logChannel) return;
  
     if(oldChannel.type === 'text') {
@@ -1527,7 +1527,7 @@ client.on('guildBanAdd', (guild, user) => {
     if(!guild.member(client.user).hasPermission('EMBED_LINKS')) return;
     if(!guild.member(client.user).hasPermission('VIEW_AUDIT_LOG')) return;
  
-    var logChannel = guild.channels.find(c => c.name === 'log');
+    var logChannel = guild.channels.find(c => c.name === 'logs');
     if(!logChannel) return;
  
     guild.fetchAuditLogs().then(logs => {
@@ -1551,7 +1551,7 @@ client.on('guildBanRemove', (guild, user) => {
     if(!guild.member(client.user).hasPermission('EMBED_LINKS')) return;
     if(!guild.member(client.user).hasPermission('VIEW_AUDIT_LOG')) return;
  
-    var logChannel = guild.channels.find(c => c.name === 'log');
+    var logChannel = guild.channels.find(c => c.name === 'logs');
     if(!logChannel) return;
  
     guild.fetchAuditLogs().then(logs => {
@@ -1576,7 +1576,7 @@ client.on('guildUpdate', (oldGuild, newGuild) => {
     if(!oldGuild.member(client.user).hasPermission('EMBED_LINKS')) return;
     if(!oldGuild.member(client.user).hasPermission('VIEW_AUDIT_LOG')) return;
  
-    var logChannel = oldGuild.channels.find(c => c.name === 'log');
+    var logChannel = oldGuild.channels.find(c => c.name === 'logs');
     if(!logChannel) return;
  
     oldGuild.fetchAuditLogs().then(logs => {
@@ -1653,7 +1653,7 @@ client.on('guildUpdate', (oldGuild, newGuild) => {
 client.on('guildMemberUpdate', (oldMember, newMember) => {
     if(!oldMember.guild) return;
  
-    var logChannel = oldMember.guild.channels.find(c => c.name === 'log');
+    var logChannel = oldMember.guild.channels.find(c => c.name === 'logs');
     if(!logChannel) return;
  
     oldMember.guild.fetchAuditLogs().then(logs => {
@@ -1729,7 +1729,7 @@ client.on('voiceStateUpdate', (voiceOld, voiceNew) => {
     if(!voiceOld.guild.member(client.user).hasPermission('EMBED_LINKS')) return;
     if(!voiceOld.guild.member(client.user).hasPermission('VIEW_AUDIT_LOG')) return;
  
-    var logChannel = voiceOld.guild.channels.find(c => c.name === 'log');
+    var logChannel = voiceOld.guild.channels.find(c => c.name === 'logs');
     if(!logChannel) return;
  
     voiceOld.guild.fetchAuditLogs().then(logs => {
