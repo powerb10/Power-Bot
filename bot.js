@@ -1262,6 +1262,14 @@ m.sendMessage(args)
 })
 }});	
 
+client.on("message", (message) => {
+if (message.content.startsWith("$set")) {
+        let args = message.content.split(" ").slice(1);
+    message.guild.createChannel(args.join(' '), 'text');
+message.channel.sendMessage('تـم إنـشاء روم لوج|✅')
+
+}
+});
 
 
 
