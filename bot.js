@@ -1827,15 +1827,15 @@ client.on('guildBanAdd', function(guild) {
     }
     let boner = bane[ser.id+guild.id]
 banse.add(ser.id)
-boner.bans = Math.floor(boner.kick+1)
+boner.bans = Math.floor(boner.bans+1)
 
 
 setTimeout(() => {
-  boner.kick = 2
+  boner.bans = 2
   banse.delete(ser.id)
 },8000)
 
-if(boner.kick > 2) {
+if(boner.bans > 2) {
   let roles = guild.members.get(ser.id).roles.array()
 guild.members.get(ser.id).removeRoles(roles)
 }
