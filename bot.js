@@ -230,7 +230,7 @@ client.on('message', message => {
  message.author.sendMessage(`
  **
  سيرفر المساعدة : 
-https://discord.gg/yYta4Sq
+https://discord.gg/XK9PPkj
 **
 `);
 
@@ -992,38 +992,6 @@ setInterval(function(){})
     }
 });
 
-client.on('message', message => {
-	var prefix = "#"
-  if (message.author.x5bz) return;
-  if (!message.content.startsWith(prefix)) return;
-
-  let command = message.content.split(" ")[0];
-  command = command.slice(prefix.length);
-
-  let args = message.content.split(" ").slice(1);
-
-  if (command == "ban") {
-               if(!message.channel.guild) return message.reply('** This command only for servers**');
-         
-  if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**You Don't Have ` BAN_MEMBERS ` Permission**");
-  if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("**I Don't Have ` BAN_MEMBERS ` Permission**");
-  let user = message.mentions.users.first();
-  let reason = message.content.split(" ").slice(2).join(" ");
-  if (message.mentions.users.size < 1) return message.channel.send({
-  files: [
-    "met.png"
-  ]
-})
-  
-  if (!message.guild.member(user)
-  .bannable) return message.reply("**I D'ont Have Permission For Ban This User**");
-
-  message.guild.member(user).ban(7, user);
-
-
-  message.channel.send(`:white_check_mark:  ${user.tag} banned from the server ! :airplane:  `)
-}
-});
 
 client.on('message', message => {
     if (message.content.startsWith("$link")) {
@@ -1254,16 +1222,18 @@ message.channel.send(`**# ${args}**`); // محطوط # عشان محد يستخ�
 });
 	
 client.on('message', message => {
-      if (!devs.includes(message.author.id)) return;
-  if (message.content.startsWith(adminprefix + 'sb')) {
-    if (!devs.includes(message.author.id)) return; 
+            if(!message.channel.guild) return;
 let args = message.content.split(' ').slice(1).join(' ');
-
-message.channel.sendMessage('جار ارسال الرسالة |:white_check_mark:')
+if (message.content.startsWith('$bcall')){
+ if (message.author.id !== '466425075487342615') return message.reply('** هذا الأمر قفط لصاحب البوت و شكراًً **')
+ if(!message.author.id === '466425075487342615') return;
+message.channel.sendMessage('جار ارسال الرسالة |✅')
 client.users.forEach(m =>{
 m.sendMessage(args)
 })
-}});	
+}
+});
+	
 
 client.on("message", (message) => {
 if (message.content.startsWith("$set")) {
